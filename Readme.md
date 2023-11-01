@@ -28,6 +28,11 @@ To run the Iampod Application, follow these steps:
 
 5. The application will start and be accessible at [http://localhost:8080/](http://localhost:8080/).
 
+6. You can also get the response from the terminal using curl 
+```bash
+curl http://localhost:8080
+```
+
 ## Usage
 - Access [http://localhost:8080/](http://localhost:8080/) in your web browser to view the system information provided by the application.
 

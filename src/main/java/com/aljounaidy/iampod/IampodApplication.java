@@ -23,7 +23,7 @@ public class IampodApplication {
 		String hostName = InetAddress.getLocalHost().getHostName();
 
 		double cpuUsage = ManagementFactory.getOperatingSystemMXBean().getSystemLoadAverage();
-		String currentLoad = String.format("%.2f", cpuUsage * 100);
+		String currentLoad = String.format("%.2f", cpuUsage);
 
 		return "OS Name: " + osName + " || IP: " + InetAddress.getLocalHost().getHostAddress() + " || Hostname: "
 				+ hostName + " || Current Load: " + currentLoad + "% version: 1.2.0";
