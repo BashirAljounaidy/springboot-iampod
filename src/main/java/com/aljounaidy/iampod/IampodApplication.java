@@ -8,26 +8,34 @@ import org.springframework.web.bind.annotation.RestController;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
 @RestController
 public class IampodApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(IampodApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(IampodApplication.class, args);
+    }
 
-	@GetMapping("/")
-	public String home() throws UnknownHostException {
-		// Edit version
-		String version = "1.0";
-		String osName = System.getProperty("os.name");
-		String hostName = InetAddress.getLocalHost().getHostName();
+    @GetMapping("/")
+    public Map<String, String> home() throws UnknownHostException {
+        // Edit version
+        String version = "2.0";
+        String osName = System.getProperty("os.name");
+        String hostName = InetAddress.getLocalHost().getHostName();
 
-		double cpuUsage = ManagementFactory.getOperatingSystemMXBean().getSystemLoadAverage();
-		String currentLoad = String.format("%.2f", cpuUsage);
+        double cpuUsage = ManagementFactory.getOperatingSystemMXBean().getSystemLoadAverage();
+        String currentLoad = String.format("%.2f", cpuUsage);
 
-		return "OS Name: " + osName + " || IP: " + InetAddress.getLocalHost().getHostAddress() + " || Hostname: "
-				+ hostName + " || Current Load: " + currentLoad + "% version: " + version;
-	}
+        Map<String, String> response = new HashMap<>();
+        response.put("osName", osName);
+        response.put("ip", InetAddress.getLocalHost().getHostAddress());
+        response.put("hostname", hostName);
+        response.put("currentLoad", currentLoad + "%");
+        response.put("version", version);
+
+        return response;
+    }
 }
