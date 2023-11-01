@@ -30,7 +30,7 @@ To run the Iampod Application, follow these steps:
 
 6. You can also get the response from the terminal using curl 
    ```bash
-   curl http://localhost:8080
+   curl -s http://localhost:8080 | jq
    ```
 
 ## Usage
