@@ -35,7 +35,16 @@ To run the Iampod Application, follow these steps:
 
 ## Usage
 - Access [http://localhost:8080/](http://localhost:8080/) in your web browser to view the system information provided by the application.
+## Docker 
 
+to build it 
+```bash
+cd springboot-iampod
+docker build -t springboot-iampod .
+```
+```bash
+docker run --rm --name iampod -p 8080:8080 springboot-iampod 
+```
 ## Additional Notes
 - Make sure no other application is using port 8080 before starting this application.
 - This application fetches the operating system information, host IP, and current CPU load when accessed at the root URL.
