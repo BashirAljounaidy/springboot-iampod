@@ -19,6 +19,8 @@ public class IampodApplication {
 
 	@GetMapping("/")
 	public String home() throws UnknownHostException {
+		// Edit version
+		String version = "1.0";
 		String osName = System.getProperty("os.name");
 		String hostName = InetAddress.getLocalHost().getHostName();
 
@@ -26,6 +28,6 @@ public class IampodApplication {
 		String currentLoad = String.format("%.2f", cpuUsage);
 
 		return "OS Name: " + osName + " || IP: " + InetAddress.getLocalHost().getHostAddress() + " || Hostname: "
-				+ hostName + " || Current Load: " + currentLoad + "% version: 1.2.0";
+				+ hostName + " || Current Load: " + currentLoad + "% version: " + version;
 	}
 }
