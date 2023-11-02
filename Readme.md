@@ -2,6 +2,8 @@
 
 This Spring Boot application provides information about the operating system, host IP, and current CPU load.
 
+![iampod](https://raw.githubusercontent.com/BashirAljounaidy/springboot-iampod/main/iampod-springboot.gif
+)
 ## Prerequisites
 - Java Development Kit (JDK) 17 or higher
 - Maven
