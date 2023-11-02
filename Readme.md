@@ -1,6 +1,13 @@
 # Iampod Application
+This App is  used for testing deployment using Kubernetes (K8s), Jenkins,  Docker...
+This Spring Boot application has two Endpoints :
+1. Restfull api Endpoint:
+   - Endpoint: `/api`
+   - Functionality: Provides information about the operating system, host IP, and current CPU load. This information can be accessed through appropriate API calls.
 
-This Spring Boot application provides information about the operating system, host IP, and current CPU load.
+2. Static Website Serving:
+   - Endpoint: `/`
+   - Functionality: Serves a static website. Users can access the website by navigating to the root URL. The website might contain various HTML, CSS, and JavaScript files, along with other assets, necessary for the website's functionality and appearance.
 
 ![iampod](https://raw.githubusercontent.com/BashirAljounaidy/springboot-iampod/main/iampod-springboot.gif
 )
