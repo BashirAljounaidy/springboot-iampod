@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iampod-springboot-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iampod-springboot
+  template:
+    metadata:
+      labels:
+        app: iampod-springboot
+    spec:
+      containers:
+        - name: iampod-springboot-container
+          image: bashiraljounaidy/iampod-spring:latest
+          ports:
+            - containerPort: 8080
