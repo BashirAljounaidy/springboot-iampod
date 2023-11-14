@@ -34,7 +34,10 @@ To run the Iampod Application, follow these steps:
    ```sh
    mvn spring-boot:run
    ```
-
+   or
+   ```sh
+   mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8080
+   ```
 5. The application will start and be accessible at [http://localhost:8080/](http://localhost:8080/).
 
 6. You can also get the response from the terminal using curl 
