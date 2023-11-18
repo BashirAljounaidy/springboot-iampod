@@ -10,13 +10,4 @@ COPY . .
 
 RUN mvn package -DskipTests
 
-
-FROM openjdk:17-alpine AS prod
-
-WORKDIR /app
-
-COPY --from=build /app/target/iampod-*.jar /app/app.jar
-
-EXPOSE 8080
-
-Entrypoint ["java", "-jar", "app.jar"]
+CMD ["mvn", "spring-boot:run"]
