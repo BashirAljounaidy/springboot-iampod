@@ -1,14 +1,22 @@
-FROM maven:3.9.4-eclipse-temurin-17-alpine
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
+FROM maven:3.9.4-eclipse-temurin-17-alpine AS build
+
+WORKDIR /app
+
+COPY ./pom.xml pom.xml
+
+RUN mvn dependency:go-offline -B
+
+COPY . .
+
+RUN mvn package -DskipTests
 
 
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
+FROM openjdk:17-alpine AS prod
 
-WORKDIR /opt/app
+WORKDIR /app
 
-COPY ${artifact} app.jar
+COPY --from=build /app/target/iampod-*.jar /app/app.jar
 
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+EXPOSE 8080
+
+Entrypoint ["java", "-jar", "app.jar"]
