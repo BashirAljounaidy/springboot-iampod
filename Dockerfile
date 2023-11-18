@@ -8,6 +8,4 @@ RUN mvn dependency:go-offline -B
 
 COPY . .
 
-RUN mvn package -DskipTests
-
-CMD ["mvn", "spring-boot:run"]
+CMD ["mvn", "spring-boot:run", "-DskipTests"]
