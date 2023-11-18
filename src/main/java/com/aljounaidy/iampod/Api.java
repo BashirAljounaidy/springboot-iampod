@@ -15,7 +15,7 @@ public class Api {
     @GetMapping("/api")
     public Map<String, String> home() throws UnknownHostException {
         // Edit version
-        String version = "2.0";
+        String version = "3.1";
         String osName = System.getProperty("os.name");
         String hostName = InetAddress.getLocalHost().getHostName();
 
