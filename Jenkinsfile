@@ -13,7 +13,7 @@ pipeline {
       steps {
         echo 'Building and testing the project'
         sh 'ls -ltr'
-        sh 'mvn clean package --no-transfer-progress --no-cache'
+        sh 'mvn clean package -U'
       }
     }
 
