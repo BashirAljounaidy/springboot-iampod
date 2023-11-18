@@ -45,6 +45,7 @@ To run the Iampod Application, follow these steps:
    curl -s http://localhost:8080/api | jq
    ```
 
+
 ## Usage
 - Access [http://localhost:8080/](http://localhost:8080/) in your web browser to view the system information provided by the application.
 ## Docker 
