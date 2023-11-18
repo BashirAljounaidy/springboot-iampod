@@ -32,7 +32,7 @@ pipeline {
       steps {
         script {
           withDockerRegistry([credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/']) {
-            def dockerImage = docker.build("bashiraljounaidy/springboot-iampod:v3.6", ".")
+            def dockerImage = docker.build("bashiraljounaidy/springboot-iampod:latest", ".")
             dockerImage.push()
           }
         }
