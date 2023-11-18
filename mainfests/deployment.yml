@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: iampod-springboot-container
-          image: bashiraljounaidy/iampod-spring:latest
+          image: bashiraljounaidy/iampod-spring:v3.6
           ports:
             - containerPort: 8080
