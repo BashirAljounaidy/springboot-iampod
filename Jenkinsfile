@@ -68,7 +68,7 @@ pipeline {
                         curl -k -X POST \
                             -H 'Content-Type: application/json' \
                             -H 'Authorization: Bearer ${JWT_TOKEN}' \
-                            -d @${APP_DEFINITION_FILE} \
+                            -d @"https://raw.githubusercontent.com/BashirAljounaidy/springboot-iampod/main/mainfests/argocd.yml" \
                             ${ARGOCD_URL}/api/v1/applications
                     """
                 }
