@@ -4,6 +4,7 @@ pipeline {
         ARGOCD_URL = "https://138.68.75.70:31452"
         APPLICATION_NAME = "iampod"
         JWT_TOKEN = credentials('ArgoCd')
+        version = "v6.5"
   }
   stages {
     stage('Checkout') {
@@ -36,7 +37,7 @@ pipeline {
       steps {
         script {
           withDockerRegistry([credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/']) {
-            def dockerImage = docker.build("bashiraljounaidy/springboot-iampod:v6.5", ".")
+            def dockerImage = docker.build("bashiraljounaidy/springboot-iampod:${version}", ".")
             dockerImage.push()
           }
         }
