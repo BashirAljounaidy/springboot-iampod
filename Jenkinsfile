@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment {
+        ARGOCD_URL = "https://138.68.75.70:31452"
+        APPLICATION_NAME = "iampod"
+        JWT_TOKEN = credentialsId("ArgoCd")
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -31,11 +36,19 @@ pipeline {
       steps {
         script {
           withDockerRegistry([credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/']) {
-            def dockerImage = docker.build("bashiraljounaidy/springboot-iampod:v6", ".")
+            def dockerImage = docker.build("bashiraljounaidy/springboot-iampod:v6.5", ".")
             dockerImage.push()
           }
         }
       }
+    }
+    stage('Trigger ArgoCD Sync') {
+        steps {
+            script {
+                def syncPayload = '{"prune": true, "dryRun": false, "force": true}'
+                sh(script: "curl -k -X POST -H 'Content-Type: application/json' -H 'Authorization: Bearer ${JWT_TOKEN}' -d '${syncPayload}' ${ARGOCD_URL}/api/v1/applications/${APPLICATION_NAME}/sync", returnStatus: true)
+            }
+        }
     }
   }
 }
