@@ -3,7 +3,7 @@ pipeline {
   environment {
         ARGOCD_URL = "https://138.68.75.70:31452"
         APPLICATION_NAME = "iampod"
-        JWT_TOKEN = credentialsId("ArgoCd")
+        JWT_TOKEN = credentials('ArgoCd')
   }
   stages {
     stage('Checkout') {
