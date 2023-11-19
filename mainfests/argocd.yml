@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: iampod
+  namespace: default
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: iampod
+  project: default
+  source:
+    repoURL: 'https://github.com/BashirAljounaidy/springboot-iampod'
+    path: mainfests
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Replace=true
+      - PrunePropagationPolicy=orphan
