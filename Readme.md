@@ -8,7 +8,10 @@ This Spring Boot application has two Endpoints :
 2. Static Website Serving:
    - Endpoint: `/`
    - Functionality: Serves a static website. Users can access the website by navigating to the root URL. The website might contain various HTML, CSS, and JavaScript files, along with other assets, necessary for the website's functionality and appearance.
-
+3. CI&CD : 
+![CICD](https://raw.githubusercontent.com/BashirAljounaidy/springboot-iampod/main/ArgoCd.drawio.png
+)
+Video 
 ![iampod](https://raw.githubusercontent.com/BashirAljounaidy/springboot-iampod/main/iampod-springboot.gif
 )
 ## Prerequisites
